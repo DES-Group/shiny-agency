@@ -1,30 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './style/index.css';
+import './utils/style/index.css';
 import Home from './pages/Home/';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Survey from './pages/Survey/';
+import Survey from './pages/Survey';
 import Header from './components/Header';
-import ClientForm from './components/ClientForm';
-import FreelanceForm from './components/FreelanceForm';
+import Error from './pages/Error';
+import { Results } from './pages/Results';
+import { Freelances } from './pages/Freelances';
+import GlobalStyle from './utils/style/GlobalStyle';
+import { SurveyProvider, ThemeProvider } from './utils/context';
+import { Footer } from './components/Footer';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <React.StrictMode>
-      <Router>
+    <Router>
+      <ThemeProvider>
+        <SurveyProvider>
+        <GlobalStyle />
         <Header />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/survey/:questionNumber' element={<Survey />}>
-            <Route path='client' element={<ClientForm />} />
-            <Route path='freelance' element={<FreelanceForm />} />
-          </Route>
+          <Route exact path='/' element={<Home />} />
+          <Route path='/survey/:questionNumber' element={<Survey />} />
+          <Route path='/results' element={<Results />} />
+          <Route path='/freelances' element={<Freelances />} />
+          {/** When all routes define above match not, then we show an error page :
+           * s: 19 / 09 /1999
+           */}
+          <Route path='*' element={<Error />} />
         </Routes>
-      </Router>
-    </React.StrictMode>
+          <Footer />
+      </SurveyProvider>
+      </ThemeProvider>
+    </Router>
   </React.StrictMode>
 );
 
