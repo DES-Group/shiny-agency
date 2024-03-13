@@ -1,0 +1,55 @@
+
+
+.faqs {
+    display: flex;
+    padding: 0 3%;
+    justify-content: space-around;
+    font-family: "Helvetica Neue LT", sans-serif;
+    overflow-y: auto; /* Nécessaire pour le positionnement sticky */
+    height: 500px; /* Hauteur fixe pour illustrer le défilement */
+}
+
+.table-of-content {
+    width: 20%;
+    position: sticky;
+    top: 10px;
+}
+
+.table-of-content ul {
+    list-style: none;
+}
+
+.table-of-content li {
+    margin: 2%;
+    padding: 2%;
+}
+
+.table-of-content li a:hover {
+    text-decoration: underline;
+}
+
+.table-of-content a {
+    color: rgb(244, 93, 34);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+.table-of-content ul li {
+    text-decoration: none;
+}
+
+
+.faq-content {
+    width: 50%; 
+}
+
+.faq-content h1 {
+    color: rgb(244, 93, 34);
+    font-size: xx-large; 
+}
+
+.faq-content h3 {
+    color: rgb(99, 120, 139);
+    font-size: x-large;
+}
